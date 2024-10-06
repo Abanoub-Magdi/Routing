@@ -13,6 +13,9 @@ import { ServersService } from './servers/servers.service';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './users/auth.service';
+import { AuthGuard } from './users/auth-guard.servece';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 @NgModule({
@@ -24,14 +27,15 @@ import { AppRoutingModule } from './app-routing.module';
     UserComponent,
     EditServerComponent,
     ServerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ServersService],
+  providers: [ServersService ,AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
